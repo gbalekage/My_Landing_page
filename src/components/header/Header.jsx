@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Header.css"
 
 const Header = () => {
 
-    
+    const [viewNav, setViewNav] = useState(false)
 
   return (
     <header className="header">
         <nav className="nav container">
             <a href="#" className='nav__logo'>Gael</a>
 
-            <div className="nav__menu">
+            <div className={viewNav ? "nav__menu show__menu" : "nav__menu"}>
                 <ul className="nav__list grid">
                     <li className="nav__item">
                         <a href="#home" className='nav__link active__link'>
@@ -42,14 +42,14 @@ const Header = () => {
                         </a>
                     </li>
                 </ul>
-                <i className="uil uil-times nav__close"></i>
+                <i className="uil uil-times nav__close" onClick={() => setViewNav(!viewNav)}></i>
             </div>
 
             <div className="nav__theme">
                 <i class="uil uil-moon"></i>
             </div>
 
-            <div className="nav__toggle">
+            <div className="nav__toggle" onClick={() => setViewNav(!viewNav)}>
                 <i className="uil uil-apps"></i>
             </div>
 
